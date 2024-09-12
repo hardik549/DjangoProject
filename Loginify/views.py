@@ -30,7 +30,7 @@ def login(request):
         try:
             user = UserDetails.objects.get(email=email, password=password)
             messages.success(request, f'Welcome, {user.username}!')
-            return render(request, 'login_success.html', {'user': user})  # Pass user object to template
+            return render(request, 'login_success.html', {'user': user})
 
         except UserDetails.DoesNotExist:
             messages.error(request, 'Invalid credentials.')
